@@ -1,6 +1,7 @@
 import os
 import webbrowser
 
+#This first part is the HTML styling. Makes things look nice. Also is the top portion of the HTML file.#
 top = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,16 +51,18 @@ top = """<!DOCTYPE html>
 <h1>Project Directory Listing</h1>
 <ul>
 """
-lst = os.listdir('.')
+                            #notice how the HTML starts the list header to be written#
+lst = os.listdir('.')       #lists the directory#
 
-f = open("list.html", "w")
-f.write(top)
+f = open("list.html", "w")  #opens the list.html to be written, as variable 'f'#
+f.write(top)                #writes the style and first header for the HTML list (ie: top part)#
 
 for l in lst:
-	f.write("<li>" + l + "</li>")
+    f.write("<li>" + l + "</li>")   #writes the list 'lst' with the HTML inside the HTML file#
 
-f.write("</ul></body></html>")
+f.write("</ul></body></html>")      #writes the bottom of the HTML body to the file.#
 f.close()
 
-# http://stackoverflow.com/a/5943706
-webbrowser.open('file://' + os.path.realpath("list.html"))
+webbrowser.open('file://' + os.path.realpath("list.html"))  #opens the HTML file with the default web browser.#
+
+#http://stackoverflow.com/a/5943706 >> credit for figuring out "os.path.realpath"#
