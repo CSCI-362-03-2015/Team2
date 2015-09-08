@@ -5,5 +5,5 @@
 - Set up wiki pages [DONE]
 - New candidates for Sept 7th. [DONE]
 - Work on <b>Deliverable 1</b> [____]
-  - OWASP sub project selection
+- - OWASP sub project selection
   - 
