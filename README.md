@@ -13,4 +13,3 @@
   - OWASP EnDe selected [DONE]
   - Initial testing and installation [DONE]
   - WiKi page [DONE]
-  - 
