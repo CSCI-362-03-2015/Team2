@@ -8,7 +8,7 @@ driver = webdriver.Firefox()
 
 #credit to http://stackoverflow.com/questions/918154/relative-paths-in-python for absolute path info
 path_part = os.path.dirname(os.path.realpath(__file__))
-file_name = os.path.join(path_part, "../project/index.html")
+file_name = os.path.join(path_part, "../../project/index.html")
 file_name = os.path.abspath(os.path.realpath(file_name))
 file_name = "file://" + file_name
 driver.get(file_name)
@@ -18,10 +18,11 @@ textarea_in.send_keys("42")
 
 li = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[7]")
 hover = ActionChains(driver).move_to_element(li)
-hover.perform()
+hover.click().perform()
 
-a = driver.find_element_by_id("EnDeDOM.EN.Actions.s.intBIN")
-a.click()
+#a = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[7]/ul/li[5]")
+#a = driver.find_element_by_id("EnDeDOM.EN.Actions.s.intBIN")
+#a.click()
 
 textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
 text = textarea_out.get_attribute("value")

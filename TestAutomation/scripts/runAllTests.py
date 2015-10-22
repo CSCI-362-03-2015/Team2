@@ -65,10 +65,10 @@ for testCaseData in testCasesData:
 
 
 #os.system("python " + "./testCaseExecutables/" + caseExe)
-#f = open(os.path.abspath('./temp/results.html'), "a")
-#f.write("</ul></body></html>")      #writes the bottom of the HTML body to the file.#
-#f.close()
+f = open(os.path.abspath('./temp/results.html'), "a")
+f.write("</body></html>")      #writes the bottom of the HTML body to the file.#
+f.close()
 
-#webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html')))  #opens the HTML file with the default web browser.#
+webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html')))  #opens the HTML file with the default web browser.#
 
 #http://stackoverflow.com/a/5943706 >> credit for figuring out "os.path.realpath"#

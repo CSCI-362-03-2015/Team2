@@ -4,11 +4,12 @@ from selenium.webdriver.common.action_chains import ActionChains
 import os
 import base64
 
-def test_textarea_gui(testCase):
-
+def test_textarea_gui(testCase, li_number, a_id):
 
 	# create specific webdriver
 	driver = webdriver.Firefox()
+
+	driver.maximize_window()
 
 	# credit to http://stackoverflow.com/questions/918154/relative-paths-in-python 
 	# for absolute path info
@@ -21,11 +22,11 @@ def test_textarea_gui(testCase):
 	textarea_in = driver.find_element_by_id("EnDeDOM.EN.text")
 	textarea_in.send_keys(testCase['test_input'])
 
-	li = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[4]")
-	hover = ActionChains(driver).move_to_element(li)
-	hover.perform()
+	li1 = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[%s]" % li_number)
+	hover1 = ActionChains(driver).move_to_element(li1)
+	hover1.perform()
 
-	a = driver.find_element_by_id("EnDeDOM.EN.Actions.s.base64")
+	a = driver.find_element_by_id(a_id)
 	a.click()
 
 	textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
@@ -34,7 +35,10 @@ def test_textarea_gui(testCase):
 	f = open(os.path.abspath('./temp/results.html'), "a")
 	f.close()
 	driver.close()
-	if text == testCase['expected_outcome']:
-		return True
-	else:
-		return False
+
+	print "\t test input: %s" % testCase['test_input']
+	print "\t expected outcome: %s" % testCase['expected_outcome']
+	print "\t EnDe result: %s" % text
+	print "\t Equal? %s" % (text == testCase['expected_outcome'])
+
+	return text
