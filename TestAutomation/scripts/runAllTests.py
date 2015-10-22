@@ -53,22 +53,22 @@ top = """<!DOCTYPE html>
 <ul>
 """
                             #notice how the HTML starts the list header to be written#
-lst = os.listdir('./testCases')       #lists the directory#
+lst = os.listdir('../testCases')       #lists the directory#
 
-f = open(os.path.abspath('./temp/results.html'), "w")  #opens the list.html to be written, as variable 'f'#
+f = open(os.path.abspath('../temp/results.html'), "w")  #opens the list.html to be written, as variable 'f'#
 f.write(top)                #writes the style and first header for the HTML list (ie: top part)#
 f.close()
 for l in lst:
 #test    os.system("python " + l)
-    caseFile = open(os.path.abspath("./testCases/" + l), "r")
+    caseFile = open(os.path.abspath("../testCases/" + l), "r")
     caseExe = caseFile.readline()
     caseFile.close()
-    os.system("python " + "./testCaseExecutables/" + caseExe)
+    os.system("python " + "../testCaseExecutables/" + caseExe)
     #f.write("<li>" + l + "</li>")   #writes the list 'lst' with the HTML inside the HTML file#
-f = open(os.path.abspath('./temp/results.html'), "a")
+f = open(os.path.abspath('../temp/results.html'), "a")
 f.write("</ul></body></html>")      #writes the bottom of the HTML body to the file.#
 f.close()
 
-webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html')))  #opens the HTML file with the default web browser.#
+webbrowser.open('file://' + os.path.realpath(os.path.abspath('../temp/results.html')))  #opens the HTML file with the default web browser.#
 
 #http://stackoverflow.com/a/5943706 >> credit for figuring out "os.path.realpath"#
