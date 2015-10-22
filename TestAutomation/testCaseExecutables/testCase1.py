@@ -1,45 +1,25 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 import os
-import base64
+import sys
+import pickle
+from base64 import b64decode
+from StringIO import StringIO
 
-driver = webdriver.Firefox()
+# get needed added to the path relative to this file
+current_path = os.path.dirname(os.path.realpath(__file__))
+module_folder = os.path.join(current_path, "../opt/selenium_scaffolding")
+abs_module_folder = os.path.abspath(os.path.realpath(module_folder))
 
-#credit to http://stackoverflow.com/questions/918154/relative-paths-in-python for absolute path info
-path_part = os.path.dirname(os.path.realpath(__file__))
-file_name = os.path.join(path_part, "../project/index.html")
-file_name = os.path.abspath(os.path.realpath(file_name))
-file_name = "file://" + file_name
-driver.get(file_name)
+sys.path.insert(0, abs_module_folder)
 
+# now we can import this custom module
+from selenium_scaffolding import test_textarea_gui
 
-textarea_in = driver.find_element_by_id("EnDeDOM.EN.text")
-textarea_in.send_keys("Euro")
+# grab and decode testCaseData sent from runAllTests.py
+testCaseData = pickle.loads(b64decode(sys.argv[1]))
 
-li = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[4]")
-hover = ActionChains(driver).move_to_element(li)
-hover.perform()
+val = test_textarea_gui(testCaseData)
 
-a = driver.find_element_by_id("EnDeDOM.EN.Actions.s.base64")
-a.click()
-
-textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
-text = textarea_out.get_attribute("value")
-
-#assert text == base64.b64encode("Euro")
-f = open(os.path.abspath('./temp/results.html'), "a")
-if text == base64.b64encode("Euro"):
-	f.write("<li>Test 1: pass</li>")
-	#print "Test 1: pass"
-else:
-	f.write("<li>Test 1: fail</li>")
-	#print "Test 1: fail"
-
-f.close()
-driver.close()
-
-#print "If you've seeing here, the assertion has passed"
+print val
 
 
 
