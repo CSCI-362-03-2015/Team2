@@ -38,15 +38,11 @@
 		}
 		table {
 		    border-collapse: collapse;
-		    width: 100%;
-		}
-		th {
-			height: 50px;
 		}
 		table, th, td {
 		    border: 1px solid black;
 		}
-		td {
+		th, td {
 			padding: 9px;
 		}
 		@media (max-width: 640px) {
@@ -59,103 +55,113 @@
 <body>
 <h1>Results</h1>
 <table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
 	<tbody>
-		<th>Test ID Number</th>
-		<th>Requirement Being Tested</th>
-		<th>Component Being Tested</th>
-		<th>Method Being Tested</th>
-		<th>Test Inputs, including command line arguments</th>
-		<th>Expected Outcomes</th>
-		<th>Actual Outcome</th>
+		<tr>
+			<td>1</td>
+			<td>verify base64 encoding works through EnDe interface testing using selenium to check output is correct for base64 option through UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Euro</td>
+			<td>RXVybw==</td>
+			<td>RXVybw==</td>
+		</tr>
 	</tbody>
-	<tr>
-		<td width="10%">1</td>
-		<td width="30%">verify base64 encoding works through EnDe interface testing using selenium to check output is correct for base64 option through UI</td>
-		<td width="20%">the EnDe graphical interface</td>
-		<td width ="10%">NA</td>
-		<td width="5%">Euro</td>
-		<td width="10%">RXVybw==</td>
-		<td width="5%">RXVybw==</td>
-	</tr>
 </table>
 <table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
 	<tbody>
-		<th>Test ID Number</th>
-		<th>Requirement Being Tested</th>
-		<th>Component Being Tested</th>
-		<th>Method Being Tested</th>
-		<th>Test Inputs, including command line arguments</th>
-		<th>Expected Outcomes</th>
-		<th>Actual Outcome</th>
+		<tr>
+			<td>2</td>
+			<td>verify that the hexidecimal conversion works thorugh the EnDe interface testing using selenium to make sure hexidecimal conversion works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Hex Test</td>
+			<td>4865782054657374</td>
+			<td>48,65,78,20,54,65,73,74</td>
+		</tr>
 	</tbody>
-	<tr>
-		<td width="10%">2</td>
-		<td width="30%">verify that the hexidecimal conversion works thorugh the EnDe interface testing using selenium to make sure hexidecimal conversion works through EnDe UI</td>
-		<td width="20%">the EnDe graphical interface</td>
-		<td width ="10%">NA</td>
-		<td width="5%">Hex Test</td>
-		<td width="10%">4865782054657374</td>
-		<td width="5%">48,65,78,20,54,65,73,74</td>
-	</tr>
 </table>
 <table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
 	<tbody>
-		<th>Test ID Number</th>
-		<th>Requirement Being Tested</th>
-		<th>Component Being Tested</th>
-		<th>Method Being Tested</th>
-		<th>Test Inputs, including command line arguments</th>
-		<th>Expected Outcomes</th>
-		<th>Actual Outcome</th>
+		<tr>
+			<td>3</td>
+			<td>verify that the integer to binary conversion works thorugh the EnDe interface testing using selenium to make sure binary conversion works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>42</td>
+			<td>101010</td>
+			<td>101010</td>
+		</tr>
 	</tbody>
-	<tr>
-		<td width="10%">3</td>
-		<td width="30%">verify that the integer to binary conversion works thorugh the EnDe interface testing using selenium to make sure binary conversion works through EnDe UI</td>
-		<td width="20%">the EnDe graphical interface</td>
-		<td width ="10%">NA</td>
-		<td width="5%">42</td>
-		<td width="10%">101010</td>
-		<td width="5%">101010</td>
-	</tr>
 </table>
 <table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
 	<tbody>
-		<th>Test ID Number</th>
-		<th>Requirement Being Tested</th>
-		<th>Component Being Tested</th>
-		<th>Method Being Tested</th>
-		<th>Test Inputs, including command line arguments</th>
-		<th>Expected Outcomes</th>
-		<th>Actual Outcome</th>
+		<tr>
+			<td>4</td>
+			<td>verify that the Rot13 encoding works thorugh the EnDe interface testing using selenium to make sure rot13 encoding works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Testing</td>
+			<td>Grfgvat</td>
+			<td>Grfgvat</td>
+		</tr>
 	</tbody>
-	<tr>
-		<td width="10%">4</td>
-		<td width="30%">verify that the Rot13 encoding works thorugh the EnDe interface testing using selenium to make sure rot13 encoding works through EnDe UI</td>
-		<td width="20%">the EnDe graphical interface</td>
-		<td width ="10%">NA</td>
-		<td width="5%">Testing</td>
-		<td width="10%">Grfgvat</td>
-		<td width="5%">Grfgvat</td>
-	</tr>
 </table>
 <table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
 	<tbody>
-		<th>Test ID Number</th>
-		<th>Requirement Being Tested</th>
-		<th>Component Being Tested</th>
-		<th>Method Being Tested</th>
-		<th>Test Inputs, including command line arguments</th>
-		<th>Expected Outcomes</th>
-		<th>Actual Outcome</th>
+		<tr>
+			<td>5</td>
+			<td>verify that the morse code encoding works thorugh the EnDe interface testing using selenium to make sure morse code encoding works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>SOS</td>
+			<td>... ___ ...</td>
+			<td>... ___ ..</td>
+		</tr>
 	</tbody>
-	<tr>
-		<td width="10%">5</td>
-		<td width="30%">verify that the morse code encoding works thorugh the EnDe interface testing using selenium to make sure morse code encoding works through EnDe UI</td>
-		<td width="20%">the EnDe graphical interface</td>
-		<td width ="10%">NA</td>
-		<td width="5%">SOS</td>
-		<td width="10%">... ___ ...</td>
-		<td width="5%">... ___ ..</td>
-	</tr>
 </table>
 </body></html>
