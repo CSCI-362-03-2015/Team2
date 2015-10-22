@@ -28,7 +28,7 @@ textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
 text = textarea_out.get_attribute("value")
 
 #assert text == base64.b64encode("Euro")
-f = open(os.path.abspath('../temp/results.html'), "a")
+f = open(os.path.abspath('./temp/results.html'), "a")
 if text == base64.b64encode("Euro"):
 	f.write("<li>Test 1: pass</li>")
 	#print "Test 1: pass"

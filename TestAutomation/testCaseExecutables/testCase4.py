@@ -27,7 +27,7 @@ textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
 text = textarea_out.get_attribute("value")
 
 #assert text == codecs.encode("Testing", "rot_13")
-f = open(os.path.abspath('../temp/results.html'), "a")
+f = open(os.path.abspath('./temp/results.html'), "a")
 if text == codecs.encode("Testing", "rot_13"):
 	f.write("<li>Test 4: pass</li>")	
 	#print "Test 4: pass"

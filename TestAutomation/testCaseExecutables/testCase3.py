@@ -27,7 +27,7 @@ textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
 text = textarea_out.get_attribute("value")
 
 #assert text == bin(42)[2:]
-f = open(os.path.abspath('../temp/results.html'), "a")
+f = open(os.path.abspath('./temp/results.html'), "a")
 if text == bin(42)[2:]:
 	f.write("<li>Test 3: pass</li>")
 	#print "Test 3: pass"

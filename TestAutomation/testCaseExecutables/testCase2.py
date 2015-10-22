@@ -35,7 +35,7 @@ for ch in "Hex Test":
 valStr = "".join(str(x) for x in val)
 #print valStr
 #assert text == valStr
-f = open(os.path.abspath('../temp/results.html'), "a")
+f = open(os.path.abspath('./temp/results.html'), "a")
 if text == valStr:
 	f.write("<li>Test 2: pass</li>")
 	#print "Test 2: pass"
