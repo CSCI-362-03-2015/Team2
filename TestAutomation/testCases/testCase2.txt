@@ -1,0 +1,7 @@
+testCase2.py
+test number 2
+requirement being tested: verify that the hexidecimal conversion works thorugh the EnDe interface
+testing using selenium to make sure hexidecimal conversion works through EnDe UI
+test input(s): "Hex Test"
+expected outcome(s): "4865782054657374"
+

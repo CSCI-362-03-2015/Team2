@@ -1,0 +1,7 @@
+testCase5.py
+test number 5
+requirement being tested: verify that the morse code encoding works thorugh the EnDe interface
+testing using selenium to make sure morse code encoding works through EnDe UI
+test input(s): "SOS"
+expected outcome(s): "... ___ ..."
+

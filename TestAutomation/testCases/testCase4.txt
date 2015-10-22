@@ -1,0 +1,7 @@
+testCase4.py
+test number 4
+requirement being tested: verify that the Rot13 encoding works thorugh the EnDe interface
+testing using selenium to make sure rot13 encoding works through EnDe UI
+test input(s): "Testing"
+expected outcome(s): "Grfgvat"
+

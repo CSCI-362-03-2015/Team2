@@ -1,7 +1,7 @@
+testCase1.py
 test number 1
-requirement being tested
-component being tested
-method being tested
-test input(s) including command-line argument(s)
-expected outcome(s)
+requirement being tested: verify base64 encoding works through EnDe interface
+testing using selenium to check output is correct for base64 option through UI
+test input(s): "Euro"
+expected outcome(s): "RXVybw=="
 
