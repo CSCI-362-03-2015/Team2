@@ -1,6 +1,7 @@
 test_number: 3
-requirement_being_tested: verify that the integer to binary conversion works thorugh the EnDe interface testing using selenium to make sure binary conversion works through EnDe UI
-component_being_tested: the EnDe graphical interface
+requirement_being_tested: Convert an integer to its binary value and display the resulting binary representation.
+component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: 42
 expected_outcome: 101010
+executable: testCase3.py

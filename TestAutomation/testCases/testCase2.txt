@@ -1,7 +1,7 @@
 test_number: 2
-requirement_being_tested: verify that the hexidecimal conversion works thorugh the EnDe interface testing using selenium to make sure hexidecimal conversion works through EnDe UI
-component_being_tested: the EnDe graphical interface
+requirement_being_tested: Convert an input string into hexidecimal, display the resulting hexidecimal value as a string.
+component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: Hex Test
 expected_outcome: 4865782054657374
-
+executable: testCase2.py

@@ -1,7 +1,7 @@
 test_number: 5
-requirement_being_tested: verify that the morse code encoding works thorugh the EnDe interface testing using selenium to make sure morse code encoding works through EnDe UI
-component_being_tested: the EnDe graphical interface
+requirement_being_tested: Convert an input string into morse code, display the resulting string.
+component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: SOS
 expected_outcome: ... ___ ...
-
+executable: testCase5.py

@@ -6,6 +6,23 @@ import subprocess
 import pickle
 from StringIO import StringIO
 from base64 import b64encode
+import time
+
+# Deletes all files in the temp folder before running tests
+# Credit to http://glowingpython.blogspot.com/2011/04/how-to-delete-all-files-in-directory.html
+# for help with removing files
+tempPath = "./temp"
+tempContents = os.listdir(tempPath)
+for tempFile in tempContents:
+	os.remove(tempPath + "/" + tempFile)
+
+# Creates a report name using a timestamp so it will not be overwritten
+# when creating a new report
+# Credit for formatting timestamp: http://stackoverflow.com/questions/2487109/python-date-time-formatting
+# Not used yet
+#localtime   = time.localtime()
+#timeString  = time.strftime("%Y%m%d%H%M%S", localtime)
+#reportName = "results" + timeString + ".html"	
 
 # TeamToo
 # This file contains the first part is the HTML styling. Makes things 
@@ -18,6 +35,7 @@ f.close()
 # opens results.html, the file where the test results will be written
 # and writes the contents of top.html into the file. This includes
 # the style and first header for the HTML list (ie: top part).
+#f = open(ap("./temp/" + reportName), "w")
 f = open(ap("./temp/results.html"), "w")
 f.write(top)
 f.close()
@@ -65,10 +83,11 @@ for testCaseData in testCasesData:
 
 
 #os.system("python " + "./testCaseExecutables/" + caseExe)
+#f = open(os.path.abspath('./temp/' + reportName), "a")
 f = open(os.path.abspath('./temp/results.html'), "a")
 f.write("</body></html>")      #writes the bottom of the HTML body to the file.#
 f.close()
 
+#webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/' + reportName)))  #opens the HTML file with the default web browser.#
 webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html')))  #opens the HTML file with the default web browser.#
-
 #http://stackoverflow.com/a/5943706 >> credit for figuring out "os.path.realpath"#
