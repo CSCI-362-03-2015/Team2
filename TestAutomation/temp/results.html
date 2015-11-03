@@ -36,6 +36,15 @@
 		li:nth-child(odd) {
 			background-color: #e6e4e4;
 		}
+		table {
+		    border-collapse: collapse;
+		}
+		table, th, td {
+		    border: 1px solid black;
+		}
+		th, td {
+			padding: 9px;
+		}
 		@media (max-width: 640px) {
 			ul {
 				width: 80%;
@@ -45,5 +54,114 @@
 </head>
 <body>
 <h1>Results</h1>
-<ul>
-<li>Test 3: pass</li><li>Test 1: pass</li><li>Test 4: pass</li><li>Test 5: fail</li><li>Test 2: pass</li></ul></body></html>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>verify base64 encoding works through EnDe interface testing using selenium to check output is correct for base64 option through UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Euro</td>
+			<td>RXVybw==</td>
+			<td>RXVybw==</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2</td>
+			<td>verify that the hexidecimal conversion works thorugh the EnDe interface testing using selenium to make sure hexidecimal conversion works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Hex Test</td>
+			<td>4865782054657374</td>
+			<td>48,65,78,20,54,65,73,74</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>3</td>
+			<td>verify that the integer to binary conversion works thorugh the EnDe interface testing using selenium to make sure binary conversion works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>42</td>
+			<td>101010</td>
+			<td>101010</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>4</td>
+			<td>verify that the Rot13 encoding works thorugh the EnDe interface testing using selenium to make sure rot13 encoding works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>Testing</td>
+			<td>Grfgvat</td>
+			<td>Grfgvat</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>5</td>
+			<td>verify that the morse code encoding works thorugh the EnDe interface testing using selenium to make sure morse code encoding works through EnDe UI</td>
+			<td>the EnDe graphical interface</td>
+			<td>NA</td>
+			<td>SOS</td>
+			<td>... ___ ...</td>
+			<td>... ___ ..</td>
+		</tr>
+	</tbody>
+</table>
+</body></html>

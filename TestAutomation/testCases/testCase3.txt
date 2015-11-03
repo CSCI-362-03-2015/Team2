@@ -1,6 +1,6 @@
-testCase3.py
-test number 3
-requirement being tested: verify that the integer to binary conversion works thorugh the EnDe interface
-testing using selenium to make sure binary conversion works through EnDe UI
-test input(s): "42"
-expected outcome(s): "101010"
+test_number: 3
+requirement_being_tested: verify that the integer to binary conversion works thorugh the EnDe interface testing using selenium to make sure binary conversion works through EnDe UI
+component_being_tested: the EnDe graphical interface
+method_being_tested: NA
+test_input: 42
+expected_outcome: 101010
