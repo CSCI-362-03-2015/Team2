@@ -1,3 +1,5 @@
 list.html
 TestAutomation/temp/results.html
 .DS_Store
+*~
+*.pyc
