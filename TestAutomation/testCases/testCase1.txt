@@ -1,7 +1,7 @@
-testCase1.py
-test number 1
-requirement being tested: verify base64 encoding works through EnDe interface
-testing using selenium to check output is correct for base64 option through UI
-test input(s): "Euro"
-expected outcome(s): "RXVybw=="
-
+test_number: 1
+requirement_being_tested: Encode an input string into base64, display the resulting string.
+component_being_tested: the EnDe graphical interface - index.html
+method_being_tested: NA
+test_input: Euro
+expected_outcome: RXVybw==
+executable: testCase1.py

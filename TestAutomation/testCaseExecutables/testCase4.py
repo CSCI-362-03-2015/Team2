@@ -1,44 +1,50 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 import os
-import codecs
+import sys
+import pickle
+from base64 import b64decode
+from StringIO import StringIO
 
-driver = webdriver.Firefox()
+print "Running Test Case 4..."
 
-#credit to http://stackoverflow.com/questions/918154/relative-paths-in-python for absolute path info
-path_part = os.path.dirname(os.path.realpath(__file__))
-file_name = os.path.join(path_part, "../project/index.html")
-file_name = os.path.abspath(os.path.realpath(file_name))
-file_name = "file://" + file_name
-driver.get(file_name)
+# get needed added to the path relative to this file
+current_path = os.path.dirname(os.path.realpath(__file__))
+module_folder = os.path.join(current_path, "../opt/selenium_scaffolding")
+abs_module_folder = os.path.abspath(os.path.realpath(module_folder))
 
-textarea_in = driver.find_element_by_id("EnDeDOM.EN.text")
-textarea_in.send_keys("Testing")
+sys.path.insert(0, abs_module_folder)
 
-li = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[5]")
-hover = ActionChains(driver).move_to_element(li)
-hover.perform()
+# now we can import this custom module
+from selenium_scaffolding import test_textarea_gui
 
-a = driver.find_element_by_id("EnDeDOM.EN.Actions.s.rot13")
-a.click()
+# grab and decode testCaseData sent from runAllTests.py
+testCaseData = pickle.loads(b64decode(sys.argv[1]))
 
-textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")
-text = textarea_out.get_attribute("value")
+val = test_textarea_gui(testCaseData, 5, 'EnDeDOM.EN.Actions.s.rot13')
 
-#assert text == codecs.encode("Testing", "rot_13")
-f = open(os.path.abspath('./temp/results.html'), "a")
-if text == codecs.encode("Testing", "rot_13"):
-	f.write("<li>Test 4: pass</li>")	
-	#print "Test 4: pass"
-else:
-	f.write("<li>Test 4: fail</li>")	
-	#print "Test 4: fail"
-	
+print "done."
+
+table_path = os.path.join(current_path, "../opt/table.html")
+abs_table_path = os.path.abspath(os.path.realpath(table_path))
+
+f = open(abs_table_path, 'r')
+table = f.read();
 f.close()
-driver.close()
 
-#print "If you've seeing here, the assertion has passed"
+results_path = os.path.join(current_path, "../temp/results.html")
+abs_results_path = os.path.abspath(os.path.realpath(results_path))
+
+color = 'green'
+if val != testCaseData['expected_outcome']:
+	color = 'red'
+
+f = open(abs_results_path, 'a')
+f.write(table % (color, testCaseData['test_number'], \
+		        testCaseData['requirement_being_tested'], \
+			testCaseData['component_being_tested'], 
+			testCaseData['method_being_tested'], \
+			testCaseData['test_input'], \
+			testCaseData['expected_outcome'], val))
+f.close()
 
 
 
