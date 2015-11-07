@@ -33,9 +33,9 @@ f.close()
 results_path = os.path.join(current_path, "../temp/results.html")
 abs_results_path = os.path.abspath(os.path.realpath(results_path))
 
-color = 'green'
+color = 'sucess'
 if val != testCaseData['expected_outcome']:
-	color = 'red'
+	color = 'danger'
 
 f = open(abs_results_path, 'a')
 f.write(table % (color, testCaseData['test_number'], \

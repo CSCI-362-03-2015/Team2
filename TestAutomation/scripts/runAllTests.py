@@ -7,6 +7,8 @@ import pickle
 from StringIO import StringIO
 from base64 import b64encode
 import time
+import shutil
+import datetime
 
 # Deletes all files in the temp folder before running tests
 # Credit to http://glowingpython.blogspot.com/2011/04/how-to-delete-all-files-in-directory.html
@@ -20,19 +22,21 @@ for tempFile in tempContents:
 # when creating a new report
 # Credit for formatting timestamp: http://stackoverflow.com/questions/2487109/python-date-time-formatting
 # Not used yet
-#localtime   = time.localtime()
-#timeString  = time.strftime("%Y%m%d%H%M%S", localtime)
-#reportName = "results" + timeString + ".html"	
+localtime   = time.localtime()
+timeString  = time.strftime("%Y%m%d%H%M%S", localtime)
+reportName = "results_" + timeString + ".html"	
 
-# TeamToo
 # This file contains the first part is the HTML styling. Makes things 
 # look nice. Also is the top portion of the HTML file.
-# note that top.html starts the list header to be written
+# note that top.html starts the table header
 f = open(ap("./opt/top.html"), "r")
 top = f.read()
 f.close()
 
-# opens results.html, the file where the test results will be written
+# add date to top
+top = top % datetime.datetime.now().strftime("%x at %X")
+
+# Opens results.html, the file where the test results will be written
 # and writes the contents of top.html into the file. This includes
 # the style and first header for the HTML list (ie: top part).
 #f = open(ap("./temp/" + reportName), "w")
@@ -78,15 +82,14 @@ for testCaseData in testCasesData:
 	os.system("python " + "./testCaseExecutables/testCase" + testCaseData['test_number'] + '.py \'' + b64encode(serializedData.getvalue()) + '\'')
 	serializedData.flush()
 
-
-
-
-
 #os.system("python " + "./testCaseExecutables/" + caseExe)
 #f = open(os.path.abspath('./temp/' + reportName), "a")
 f = open(os.path.abspath('./temp/results.html'), "a")
-f.write("</body></html>")      #writes the bottom of the HTML body to the file.#
+f.write("</tbody></table></div></body></html>")      #writes the bottom of the HTML body to the file.#
 f.close()
+
+# currently, just copy results for the report run
+shutil.copyfile('./temp/results.html', './reports/' + reportName)
 
 #webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/' + reportName)))  #opens the HTML file with the default web browser.#
 webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html')))  #opens the HTML file with the default web browser.#
