@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Results</title>
+	<style>
+		body {
+			font-family: "Helvetica", "Verdana", sans-serif;	
+		}
+		h1 {
+			text-align: center;
+		}
+		ul {
+			list-style-type: none;
+			padding-left: 0px;
+			width: 50%;
+			margin: 0 auto;
+		}
+		ul:last-child {
+			border-bottom: 1px #777 solid;
+		}
+		li {
+			font-size: 16pt;
+			margin: 0;
+			padding: 5px;
+			border: 1px #777 solid;
+			border-bottom: none;
+			text-align: center
+		}
+		li:hover {
+			opacity: 0.8;
+		}
+		li:nth-child(even) {
+			background-color: #c9d5df;
+		}
+		li:nth-child(odd) {
+			background-color: #e6e4e4;
+		}
+		table {
+		    border-collapse: collapse;
+		}
+		table, th, td {
+		    border: 1px solid black;
+		}
+		th, td {
+			padding: 9px;
+		}
+		@media (max-width: 640px) {
+			ul {
+				width: 80%;
+			}
+		}
+	</style>
+</head>
+<body>
+<h1>Results</h1>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>Encode an input string into base64, display the resulting string.</td>
+			<td>the EnDe graphical interface - index.html</td>
+			<td>NA</td>
+			<td>Euro</td>
+			<td>RXVybw==</td>
+			<td>RXVybw==</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2</td>
+			<td>Convert an input string into hexidecimal, display the resulting hexidecimal value as a string.</td>
+			<td>the EnDe graphical interface - index.html</td>
+			<td>NA</td>
+			<td>Hex Test</td>
+			<td>4865782054657374</td>
+			<td>48,65,78,20,54,65,73,74</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>3</td>
+			<td>Convert an integer to its binary value and display the resulting binary representation.</td>
+			<td>the EnDe graphical interface - index.html</td>
+			<td>NA</td>
+			<td>42</td>
+			<td>101010</td>
+			<td>101010</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: green;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>4</td>
+			<td>Encode an input string into Rot13, display the resulting string.</td>
+			<td>the EnDe graphical interface - index.html</td>
+			<td>NA</td>
+			<td>Testing</td>
+			<td>Grfgvat</td>
+			<td>Grfgvat</td>
+		</tr>
+	</tbody>
+</table>
+<table style="background-color: red;">
+	<thead>
+		<th width="10%">Test ID Number</th>
+		<th width="30%">Requirement Being Tested</th>
+		<th width="20%">Component Being Tested</th>
+		<th width="10%">Method Being Tested</th>
+		<th width="5%">Test Inputs, including command line arguments</th>
+		<th width="10%">Expected Outcomes</th>
+		<th width="5%">Actual Outcome</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>5</td>
+			<td>Convert an input string into morse code, display the resulting string.</td>
+			<td>the EnDe graphical interface - index.html</td>
+			<td>NA</td>
+			<td>SOS</td>
+			<td>... ___ ...</td>
+			<td>... ___ ..</td>
+		</tr>
+	</tbody>
+</table>
+</body></html>
