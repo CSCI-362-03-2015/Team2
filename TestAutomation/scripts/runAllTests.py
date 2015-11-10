@@ -10,6 +10,7 @@ import time
 import shutil
 import datetime
 import sys
+from selenium import webdriver
 
 # Deletes all files in the temp folder before running tests
 # Credit to http://glowingpython.blogspot.com/2011/04/how-to-delete-all-files-in-directory.html
@@ -78,6 +79,13 @@ for testCase in testCases:
 #	for k, v in testCase.iteritems():
 #		print "\t%s=%s" % (k,v)
 
+# QUnit scaffolding for single test
+qunit_test = """QUnit.test( "test %s", function( assert ) {
+					assert.ok( %s == %s, %s );
+       			});"""
+qunit_tests = ""
+
+
 for testCaseData in testCasesData:
 	extension = os.path.splitext(testCaseData['executable'])[1]
 
@@ -96,46 +104,77 @@ for testCaseData in testCasesData:
 
 		val = test_textarea_gui(testCaseData)
 
-		#serializedData = StringIO()
-		#pickle.dump(testCaseData, serializedData)
-		#os.system("python " + "./testCaseExecutables/" + testCaseData['executable'] + ' \'' + b64encode(serializedData.getvalue()) + '\'')
-		#serializedData.flush()
+
+		current_path = os.path.dirname(os.path.realpath(__file__))
+		table_path = os.path.join(current_path, "../opt/table.html")
+		abs_table_path = os.path.abspath(os.path.realpath(table_path))
+
+		f = open(abs_table_path, 'r')
+		table = f.read();
+		f.close()
+
+		results_path = os.path.join(current_path, "../temp/results.html")
+		abs_results_path = os.path.abspath(os.path.realpath(results_path))
+
+		color = 'success'
+		if val != testCaseData['expected_outcome']:
+			color = 'danger'
+
+		f = open(abs_results_path, 'a')
+		f.write(table % (color, testCaseData['test_number'], \
+								testCaseData['requirement_being_tested'], \
+								testCaseData['component_being_tested'], 
+								testCaseData['method_being_tested'], \
+								testCaseData['test_input'], \
+								testCaseData['expected_outcome'], val))
+		f.close()	
+
 	elif extension == ".js":
-		pass
+		# The JavaScript tests are not run in this loop: for performance, we instead
+		# compile the text for the tests and insert them into one html file to be run
+		arity = int(testCaseData['arity'])
+		method_args = testCaseData['test_input'].split(',')[:arity]
+		for i, method_arg in enumerate(method_args):
+			method_args[i] = method_arg.split("=")[1].strip()
+
+		method_with_args = testCaseData['method_invocation'] % tuple(method_args)
+		qunit_tests += qunit_test % (testCaseData['test_number'], method_with_args, testCaseData['expected_outcome'], '"test case %s"' % testCaseData['test_number'])
+		
 	else:
 		print "error: unspecified test case format ending in '%s'" % extension
 	
 	print "done."
 
-	table_path = os.path.join(current_path, "../opt/table.html")
-	abs_table_path = os.path.abspath(os.path.realpath(table_path))
+# Compile javascript tests for execution
+f = open(os.path.abspath('./opt/qunit-scaffold.html'), 'r')
+qunit_scaffold = f.read() % qunit_tests
+f.close()
 
-	f = open(abs_table_path, 'r')
-	table = f.read();
-	f.close()
+f = open(os.path.abspath('./temp/qunit_tests.html'), 'w')
+f.write(qunit_scaffold)
+f.close()
 
-	results_path = os.path.join(current_path, "../temp/results.html")
-	abs_results_path = os.path.abspath(os.path.realpath(results_path))
+driver = webdriver.Firefox()
 
-	color = 'success'
-	if val != testCaseData['expected_outcome']:
-		color = 'danger'
+# execute javascript code
+path_part = os.path.dirname(os.path.realpath(__file__))
+file_name = os.path.join(path_part, "../temp/qunit_tests.html")
+file_name = os.path.abspath(os.path.realpath(file_name))
+file_name = "file://" + file_name
+driver.get(file_name)
 
-	f = open(abs_results_path, 'a')
-	f.write(table % (color, testCaseData['test_number'], \
-							testCaseData['requirement_being_tested'], \
-							testCaseData['component_being_tested'], 
-							testCaseData['method_being_tested'], \
-							testCaseData['test_input'], \
-							testCaseData['expected_outcome'], val))
-	f.close()	
+test_items = driver.find_elements_by_xpath("//*[contains(@id, 'qunit-test-output-')]")
 
+for test_item in test_items:
+	print test_item.get_attribute("class")
+	print test_item.find_element_by_class_name("test-name").text
 
-#os.system("python " + "./testCaseExecutables/" + caseExe)
-#f = open(os.path.abspath('./temp/' + reportName), "a")
+driver.close()
+
 f = open(os.path.abspath('./temp/results.html'), "a")
 f.write("</tbody></table></div></body></html>")      #writes the bottom of the HTML body to the file.#
 f.close()
+
 
 # currently, just copy results for the report run
 shutil.copyfile('./temp/results.html', './reports/' + reportName)

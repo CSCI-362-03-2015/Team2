@@ -1,0 +1,10 @@
+test_number: 6
+requirement_being_tested: EnDe ability to correctly manipulate bits in its many encoding and decoding algorithms
+component_being_tested: EnDe's bitshifting (left) function in sha.js
+method_being_tested: rol(x, y)
+test_input: x = 5, y = 2
+expected_outcome: 20
+executable: whatever.js
+method_invocation: EnDe.SHA['rol'](%s, %s)
+arity: 2
+
