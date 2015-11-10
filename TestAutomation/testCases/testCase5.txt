@@ -5,3 +5,5 @@ method_being_tested: NA
 test_input: SOS
 expected_outcome: ... ___ ...
 executable: testCase5.py
+list_number: 14
+link_id: EnDeDOM.EN.Actions.s.SOS

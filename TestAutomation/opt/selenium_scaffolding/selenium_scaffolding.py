@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import os
 import base64
 
-def test_textarea_gui(testCase, li_number, a_id):
+def test_textarea_gui(testCase):
 
 	# create specific webdriver
 	driver = webdriver.Firefox()
@@ -22,11 +22,11 @@ def test_textarea_gui(testCase, li_number, a_id):
 	textarea_in = driver.find_element_by_id("EnDeDOM.EN.text")
 	textarea_in.send_keys(testCase['test_input'])
 
-	li1 = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[%s]" % li_number)
+	li1 = driver.find_element_by_xpath("//ul[@id='EnDeDOM.EN.Actions.s']/li[%s]" % testCase['list_number'])
 	hover1 = ActionChains(driver).move_to_element(li1)
 	hover1.perform()
 
-	a = driver.find_element_by_id(a_id)
+	a = driver.find_element_by_id(testCase['link_id'])
 	a.click()
 
 	textarea_out = driver.find_element_by_id("EnDeDOM.DE.text")

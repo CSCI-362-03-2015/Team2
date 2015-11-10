@@ -1,6 +1,6 @@
 import os
-# saves having to write out os.path.abspath each time
-from os.path import abspath as ap 
+import os.path
+from os.path import abspath as ap # shorter version
 import webbrowser
 import subprocess
 import pickle
@@ -9,6 +9,7 @@ from base64 import b64encode
 import time
 import shutil
 import datetime
+import sys
 
 # Deletes all files in the temp folder before running tests
 # Credit to http://glowingpython.blogspot.com/2011/04/how-to-delete-all-files-in-directory.html
@@ -33,8 +34,9 @@ f = open(ap("./opt/top.html"), "r")
 top = f.read()
 f.close()
 
+current_date = datetime.datetime.now().strfime("%x at %X")
 # add date to top
-top = top % datetime.datetime.now().strftime("%x at %X")
+top = top % (current_date, current_date)
 
 # Opens results.html, the file where the test results will be written
 # and writes the contents of top.html into the file. This includes
@@ -77,10 +79,57 @@ for testCase in testCases:
 #		print "\t%s=%s" % (k,v)
 
 for testCaseData in testCasesData:
-	serializedData = StringIO()
-	pickle.dump(testCaseData, serializedData)
-	os.system("python " + "./testCaseExecutables/testCase" + testCaseData['test_number'] + '.py \'' + b64encode(serializedData.getvalue()) + '\'')
-	serializedData.flush()
+	extension = os.path.splitext(testCaseData['executable'])[1]
+
+	print "Running Test Case %s..." % testCaseData['test_number']
+
+	if extension == ".py":
+		# Chceck if the selenium scaffolding module has already been added to 
+		# the python path. If not, import it
+		current_path = os.path.dirname(os.path.realpath(__file__))
+		module_folder = os.path.join(current_path, "../opt/selenium_scaffolding")
+		abs_module_folder = os.path.abspath(os.path.realpath(module_folder))
+
+		if abs_module_folder not in sys.path:
+			sys.path.insert(0, abs_module_folder)
+			from selenium_scaffolding import test_textarea_gui
+
+		val = test_textarea_gui(testCaseData)
+
+		#serializedData = StringIO()
+		#pickle.dump(testCaseData, serializedData)
+		#os.system("python " + "./testCaseExecutables/" + testCaseData['executable'] + ' \'' + b64encode(serializedData.getvalue()) + '\'')
+		#serializedData.flush()
+	elif extension == ".js":
+		pass
+	else:
+		print "error: unspecified test case format ending in '%s'" % extension
+	
+	print "done."
+
+	table_path = os.path.join(current_path, "../opt/table.html")
+	abs_table_path = os.path.abspath(os.path.realpath(table_path))
+
+	f = open(abs_table_path, 'r')
+	table = f.read();
+	f.close()
+
+	results_path = os.path.join(current_path, "../temp/results.html")
+	abs_results_path = os.path.abspath(os.path.realpath(results_path))
+
+	color = 'success'
+	if val != testCaseData['expected_outcome']:
+		color = 'danger'
+
+	f = open(abs_results_path, 'a')
+	f.write(table % (color, testCaseData['test_number'], \
+							testCaseData['requirement_being_tested'], \
+							testCaseData['component_being_tested'], 
+							testCaseData['method_being_tested'], \
+							testCaseData['test_input'], \
+							testCaseData['expected_outcome'], val))
+	f.close()	
+
 
 #os.system("python " + "./testCaseExecutables/" + caseExe)
 #f = open(os.path.abspath('./temp/' + reportName), "a")
