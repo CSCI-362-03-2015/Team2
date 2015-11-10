@@ -34,7 +34,7 @@ f = open(ap("./opt/top.html"), "r")
 top = f.read()
 f.close()
 
-current_date = datetime.datetime.now().strfime("%x at %X")
+current_date = datetime.datetime.now().strftime("%x at %X")
 # add date to top
 top = top % (current_date, current_date)
 
