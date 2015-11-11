@@ -3,10 +3,6 @@ from urllib import url2pathname
 import requests
 import os
 
-# will need to find a way to get the info from the generated qunit page. 
-# requests.get will only accept "http://" as the input for the url, or it throws an error.
-
-
 
 # local file support?
 class LocalFileAdapter(requests.adapters.BaseAdapter):
@@ -66,26 +62,16 @@ class LocalFileAdapter(requests.adapters.BaseAdapter):
 
 requests_session = requests.session()
 requests_session.mount('file://', LocalFileAdapter())
-# /local file support?
-
-
-###################################################################################################################
-# apparently this becomes useless because the "html file" launched and running in the web browser is not
-# the same as the html file in the local directory. If the qunit "web version" can be saved after running, 
-# then this script should pull all the info directly from it without issue.
-# Replace <PATH> with path to the folder
-###################################################################################################################
+# /local file support
 
 
 # Made a sample:
-page = requests_session.get('file:///<PATH>/TeamToo/TestAutomation/temp/qunit_tests.html')
-# comment out above line and uncomment the 'page' line below
-# page = requests.get('https://raw.githubusercontent.com/ChampagneAndOJ/Test_Ignore/master/example.html')
-
-
+page = requests_session.get('file:///home/eze/Desktop/TeamToo/TestAutomation/temp/extras/qtest_sav.html')
 tree = html.fromstring(page.content)
 
 #This will create a list called PassFail:
-PassFail = tree.xpath('//span[@class="test-message"]/text()')
+Pass = tree.xpath('//li[@class="pass"]//span[@class="test-message"]/text()')
+Fail = tree.xpath('//li[@class="fail"]//span[@class="test-message"]/text()')
 
-print 'Pass or Fail?: ', PassFail
+print 'Passsed: ', Pass
+print 'Failed: ', Fail
