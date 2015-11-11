@@ -8,7 +8,6 @@ import os
 
 
 
-
 # local file support?
 class LocalFileAdapter(requests.adapters.BaseAdapter):
     """Protocol Adapter to allow Requests to GET file:// URLs
