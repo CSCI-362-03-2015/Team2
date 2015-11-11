@@ -66,8 +66,6 @@ class LocalFileAdapter(requests.adapters.BaseAdapter):
 
 requests_session = requests.session()
 requests_session.mount('file://', LocalFileAdapter())
-page = requests_session.get('file:///<PATH>/TeamToo/TestAutomation/opt/qunit-example.html')
-# comment out above line and uncomment the 'page' line below
 # /local file support?
 
 
@@ -80,7 +78,11 @@ page = requests_session.get('file:///<PATH>/TeamToo/TestAutomation/opt/qunit-exa
 
 
 # Made a sample:
+page = requests_session.get('file:///<PATH>/TeamToo/TestAutomation/temp/qunit_tests.html')
+# comment out above line and uncomment the 'page' line below
 # page = requests.get('https://raw.githubusercontent.com/ChampagneAndOJ/Test_Ignore/master/example.html')
+
+
 tree = html.fromstring(page.content)
 
 #This will create a list called PassFail:
