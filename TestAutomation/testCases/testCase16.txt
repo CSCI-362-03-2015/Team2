@@ -1,0 +1,9 @@
+test_number: 16
+requirement_being_tested: ISBN Verification
+component_being_tested: EnDe.check ISBN detection
+method_being_tested: EnDe.Check.ISBN.is(src)
+test_input: src = "0131103628"
+expected_outcome: true
+language: javascript
+method_invocation: EnDe.Check.ISBN.is(%s)
+arity: 1

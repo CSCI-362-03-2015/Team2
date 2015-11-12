@@ -1,0 +1,9 @@
+test_number: 18
+requirement_being_tested: Test whether filetype in a PNG
+component_being_tested: EnDe.User.IMG PNG detection
+method_being_tested: EnDe.User.isPNG(src)
+test_input: src="DOCTYPE xpm"
+expected_outcome: false
+language: javascript
+method_invocation: EnDe.User.IMG.isPNG(%s)
+arity: 1 

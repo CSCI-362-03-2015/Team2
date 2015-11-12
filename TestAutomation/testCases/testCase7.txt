@@ -1,10 +1,10 @@
 test_number: 7
-requirement_being_tested: EnDe ability to correctly manipulate bits in its many encoding and decoding algorithms
-component_being_tested: EnDe's bitshifting (left) function in sha.js
-method_being_tested: rol(x, y)
-test_input: x = 5, y = 2
+requirement_being_tested: EnDe ability to safely add numbers
+component_being_tested: EnDe's safe_add function in sha.js
+method_being_tested: safe_add(x, y)
+test_input: x = 10, y = 11 
 expected_outcome: 21
 language: javascript
-method_invocation: EnDe.SHA['rol'](%s, %s)
+method_invocation: EnDe.SHA['safe_add'](%s, %s)
 arity: 2
 

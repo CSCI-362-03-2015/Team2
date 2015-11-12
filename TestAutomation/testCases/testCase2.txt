@@ -3,7 +3,7 @@ requirement_being_tested: Convert an input string into hexidecimal, display the 
 component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: Hex Test
-expected_outcome: 4865782054657374
+expected_outcome: 48,65,78,20,54,65,73,74
 language: python
 list_number: 6
 link_id: EnDeDOM.EN.Actions.s.hex
