@@ -1,0 +1,9 @@
+test_number: 17
+requirement_being_tested: Convert text to morse code characters
+component_being_tested: sos function in EnDe.js
+method_being_tested: sos(_n1_,mode,_n3_,src,prefix,suffix,delimiter)
+test_input: _n1_ = null, mode = "lazy", _n3_ = null, src = "SOS", prefix = "", suffix = "", delimiter = ""
+expected_outcome: "... ___ ..."
+language: javascript
+method_invocation: EnDe.EN.sos(%s, %s, %s, %s, %s, %s, %s)
+arity: 7
