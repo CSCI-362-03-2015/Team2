@@ -4,6 +4,6 @@ component_being_tested: Value to number function in EnDeCheck.js
 method_being_tested: val2num(src)
 test_input: src = "ksdhf85439 dskdfjh 33 5"
 expected_outcome: "85439335"
-executable: whatever.js
+language: javascript
 method_invocation: EnDe.Check.val2num(%s)
 arity: 1

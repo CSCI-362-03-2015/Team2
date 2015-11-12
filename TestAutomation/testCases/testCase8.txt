@@ -4,6 +4,6 @@ component_being_tested: Character encoding function in EnDe.js
 method_being_tested: chr(_n1_,_n2_,_n3_,src,prefix,suffix,delimiter)
 test_input: _n1_ = null, _n2_ = null, _n3_ = null, src = "Testing", prefix = "~", suffix = "!", delimiter = ".."
 expected_outcome: "~T!..~e!..~s!..~t!..~i!..~n!..~g!"
-executable: whatever.js
+language: javascript
 method_invocation: EnDe.EN.chr(%s, %s, %s, %s, %s, %s, %s)
 arity: 7

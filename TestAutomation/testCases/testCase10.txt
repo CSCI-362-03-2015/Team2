@@ -4,6 +4,6 @@ component_being_tested: String reversal function in EnDe.js
 method_being_tested: reverse(src)
 test_input: src = "Testing"
 expected_outcome: "gnitseT"
-executable: whatever.js
+language: javascript
 method_invocation: EnDe.reverse(%s)
 arity: 1

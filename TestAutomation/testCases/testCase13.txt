@@ -4,6 +4,6 @@ component_being_tested: Blowfish Encryption
 method_being_tested: Blowfish Encryption
 test_input: $Monies$
 expected_outcome: 1062582A77640053
-executable: testCase13.py
+language: python
 list_number: 9
 link_id: EnDeDOM.EN.Actions.s.blowfish
