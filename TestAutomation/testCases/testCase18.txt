@@ -1,4 +1,5 @@
 test_number: 18
+<<<<<<< HEAD
 requirement_being_tested: Test whether filetype in a PNG
 component_being_tested: EnDe.User.IMG PNG detection
 method_being_tested: EnDe.User.isPNG(src)
@@ -7,3 +8,13 @@ expected_outcome: false
 language: javascript
 method_invocation: EnDe.User.IMG.isPNG(%s)
 arity: 1 
+=======
+requirement_being_tested: Convert numbers in text to Stibitz coded numbers
+component_being_tested: stibitz function in EnDe.js
+method_being_tested: stibitz(_n1_,_n2_,_n3_,src,_n5_,_n6_,delimiter)
+test_input: _n1_ = null, _n2_ = null, _n3_ = null, src = "123456", _n5_ = null, _n6_ = null, delimiter = ""
+expected_outcome: "010001010110011110001001"
+language: javascript
+method_invocation: EnDe.EN.stibitz(%s, %s, %s, %s, %s, %s, %s)
+arity: 7
+>>>>>>> c7bd5ae5f200ecce24b1807e7ed268ce8c23aec3
