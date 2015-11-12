@@ -1,0 +1,9 @@
+test_number: 21
+requirement_being_tested: CRC8 Endcoding
+component_being_tested: the EnDe graphical interface - index.html
+method_being_tested: NA
+test_input: a key string
+expected_outcome: 25
+language: python
+list_number: 10
+link_id: EnDeDOM.EN.Actions.s.crc_8
