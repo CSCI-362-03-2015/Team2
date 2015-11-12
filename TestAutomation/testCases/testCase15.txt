@@ -1,0 +1,9 @@
+test_number: 15
+requirement_being_tested: Delete whitespace in a string
+component_being_tested: DELwhite function in EnDe.Text.js
+method_being_tested: DELwhite(src)
+test_input: src = "   test test  test  "
+expected_outcome: "testtesttest"
+language: javascript
+method_invocation: EnDe.Text.DELwhite(%s)
+arity: 1

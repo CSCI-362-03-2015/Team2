@@ -1,4 +1,4 @@
-test_number: DON'T FREAKING USE THIS ONE
+test_number: DON'T USE THIS ONE
 requirement_being_tested: AES-128 encoding - verifiying that output matches expected from web browser
 component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: AES-128 encoding
@@ -8,4 +8,4 @@ executable: testCase9.py
 list_number: 9
 link_id: EnDeDOM.EN.Actions.s.aes128
 
-SERIOUSLY. DON'T FREAKING USE IT. IT WILL BREAK EVERYTHING.
+SERIOUSLY. DON'T USE IT. IT WILL BREAK EVERYTHING.
