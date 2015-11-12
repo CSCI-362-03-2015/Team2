@@ -7,3 +7,5 @@ expected_outcome: \xa3\x98\x17\xc9\x26\x01\x00\x00\x2d\x7c\x4d\x3b\xfe\x1d\xc2\x
 executable: testCase9.py
 list_number: 9
 link_id: EnDeDOM.EN.Actions.s.aes128
+
+SERIOUSLY. DON'T FREAKING USE IT. IT WILL BREAK EVERYTHING.
