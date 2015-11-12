@@ -4,7 +4,7 @@ component_being_tested: EnDe's bitshifting (left) function in sha.js
 method_being_tested: rol(x, y)
 test_input: x = 5, y = 2
 expected_outcome: 21
-executable: whatever.js
+language: javascript
 method_invocation: EnDe.SHA['rol'](%s, %s)
 arity: 2
 

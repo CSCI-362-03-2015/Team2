@@ -4,6 +4,6 @@ component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: SOS
 expected_outcome: ... ___ ...
-executable: testCase5.py
+language: python
 list_number: 14
 link_id: EnDeDOM.EN.Actions.s.SOS

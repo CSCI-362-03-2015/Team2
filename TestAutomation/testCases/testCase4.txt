@@ -4,6 +4,6 @@ component_being_tested: the EnDe graphical interface - index.html
 method_being_tested: NA
 test_input: Testing
 expected_outcome: Grfgvat
-executable: testCase4.py
+language: python
 list_number: 5
 link_id: EnDeDOM.EN.Actions.s.rot13

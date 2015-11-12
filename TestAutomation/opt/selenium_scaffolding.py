@@ -14,7 +14,7 @@ def test_textarea_gui(testCase):
 	# credit to http://stackoverflow.com/questions/918154/relative-paths-in-python 
 	# for absolute path info
 	path_part = os.path.dirname(os.path.realpath(__file__))
-	file_name = os.path.join(path_part, "../../project/index.html")
+	file_name = os.path.join(path_part, "../project/index.html")
 	file_name = os.path.abspath(os.path.realpath(file_name))
 	file_name = "file://" + file_name
 	driver.get(file_name)
