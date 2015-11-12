@@ -158,10 +158,19 @@ def write_results(file_path, tests):
 
 
 	for language in tests:
-		for test in tests[language]:
+		for test in sorted(tests[language], key=lambda x: int(x['test_number'])):
 			color = 'success'
 			if test['outcome'] == 'fail':
 				color = 'danger'
+
+
+		 	expected_outcome = test['expected_outcome'] 
+			if len(test['expected_outcome']) > 10:
+				expected_outcome = test['expected_outcome'][:7] + '...'
+
+		 	actual_result = test['actual_result'] 
+			if len(test['actual_result']) > 10:
+				actual_result = test['actual_result'][:7] + '...'
 
 			filled_table = table % \
 				(color, 
@@ -170,16 +179,12 @@ def write_results(file_path, tests):
 				test['component_being_tested'],
 			 	test['method_being_tested'],
 			 	test['test_input'],	
-			 	test['expected_outcome'],
-			 	test['actual_result'])
+				test['expected_outcome'],
+				expected_outcome,
+				test['actual_result'],
+				actual_result)
 
 			file_action('temp/results.html', 'append', filled_table)
 
 	file_action('temp/results.html', 'append', '</tbody></table></div></body></html>')
 		
-				
-
-				
-
-		
-
