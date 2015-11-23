@@ -821,7 +821,8 @@ this.bcd2i  = function(src) {
 this.reverse = function(src) {
 //#? reverse characters in string (mirror sring)
 	var bux = '';
-	var i   = src.length;
+	//Deliverable 5: injecting fault into code to fail test, changing src.length to src.length - 1
+	var i   = src.length - 1;
 	while (i>0) { i--; bux += src[i]; }
 	return bux;
 }; // EnDe.reverse
@@ -834,7 +835,8 @@ this.atbash = function(src) {
 	for (i=0; i<src.length; i++) {
 		ccc = src.charCodeAt(i);
 		if ((64<ccc) && (ccc<91)) {
-			bux += String.fromCharCode((((78-ccc)*2)-1+ccc));
+	//Deliverable 5: injecting fault into code to fail test, changing -1+ccc to -2+ccc
+			bux += String.fromCharCode((((78-ccc)*2)-2+ccc));
 			continue;
 		}
 		if ((96<ccc) && (ccc<123)) {
@@ -1967,7 +1969,7 @@ this.EN     = new function() {
 /* Example:
  * Unicode
  * code point   U+10400
- * character    ¿
+ * character    \BF
  * UTF-8        F0 90 90 80
  * UTF-16       D801 DC00
  * CESU-8       ED A0 81 ED B0 80
@@ -2481,13 +2483,13 @@ this.EN     = new function() {
 			  case 10:  str += '\\n'; break;
 			  case 13:  str += '\\r'; break;
 		/* following for windows-1252/CP-1252 mode only
-			  case 196: str += ' Ä';  break;
-			  case 214: str += ' Ö';  break;
-			  case 220: str += ' Ü';  break;
-			  case 232: str += ' ß';  break;
-			  case 228: str += ' ä';  break;
-			  case 246: str += ' ö';  break;
-			  case 252: str += ' ü';  break;
+			  case 196: str += ' \C4';  break;
+			  case 214: str += ' \D6';  break;
+			  case 220: str += ' \DC';  break;
+			  case 232: str += ' \DF';  break;
+			  case 228: str += ' \E4';  break;
+			  case 246: str += ' \F6';  break;
+			  case 252: str += ' \FC';  break;
 		*/
 			  default:  str += ' .';  break;
 			}
@@ -2832,8 +2834,8 @@ this.EN     = new function() {
   this.rsaz     = function(type,mode,uppercase,src,prefix,key,delimiter) {
   //#? **not yet implemented**
 /* Text:
-xxx1: !"§$%&/()=?
-xxx2: {[]}\`´
+xxx1: !"\A7$%&/()=?
+xxx2: {[]}\`\B4
 xxx3: +#*'~
 xxx4: ,.-;:_
 xxx5: <>|@
