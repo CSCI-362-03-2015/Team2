@@ -1,9 +1,11 @@
-test_number: 3
+test_number: 20
 requirement_being_tested: Reverse a string
 component_being_tested: the EnDe graphical interface - index.html
-method_being_tested: NA
-test_input: please excuse my dear aunt sally
-expected_outcome: yllas tnua raed ym esucxe esaelp 
-language: python
-list_number: 6
-link_id: EnDeDOM.EN.Actions.s.reverse
+
+driver: selenium_driver
+	language: python
+	method_being_tested: NA
+	test_input: please excuse my dear aunt sally
+	expected_outcome: yllas tnua raed ym esucxe esaelp 
+	list_number: 6
+	link_id: EnDeDOM.EN.Actions.s.reverse

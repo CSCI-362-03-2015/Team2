@@ -1,9 +1,11 @@
 test_number: 11
 requirement_being_tested: Force any value whether string or number to a string containing just digits
 component_being_tested: Value to number function in EnDeCheck.js
-method_being_tested: val2num(src)
-test_input: src = "ksdhf85439 dskdfjh 33 5"
-expected_outcome: "85439335"
-language: javascript
-method_invocation: EnDe.Check.val2num(%s)
-arity: 1
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: val2num(src)
+	test_input: src = "ksdhf85439 dskdfjh 33 5"
+	expected_outcome: "85439335"
+	method_invocation: EnDe.Check.val2num(%s)
+	arity: 1
