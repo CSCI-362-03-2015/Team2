@@ -75,8 +75,8 @@ def drive(test_structure):
         failed_test_xpath = "//*[contains(@class, 'test-actual')]"
         result = driver.find_elements_by_xpath(failed_test_xpath)[0].text
         # trim off beginning
-        offset = actual_test_result.find("Result:") + 8
-        result  = actual_test_result[8:].strip()[1:-1]
+        offset = result.find("Result:") + 8
+        result  = result[8:].strip()[1:-1]
     else:
         result = test_structure['expected_outcome']
         

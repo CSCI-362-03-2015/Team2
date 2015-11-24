@@ -2,7 +2,7 @@ test_number: 13
 requirement_being_tested: Encryption of text via Blowfish Encryption - outcome should always be the same.
 component_being_tested: Blowfish Encryption
 
-driver: qunit_driver
+driver: selenium_driver
 	language: python
 	method_being_tested: Blowfish Encryption
 	test_input: $Monies$
