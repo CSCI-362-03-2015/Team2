@@ -57,11 +57,8 @@ class TestCase:
         	    #       <td title='%s'>%s</td>
                 #   </tr>
                 self.test_structure['__test_table_row__'] = \
-                     "<tr class='%s'><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td title='%s'>%s</td><td title='%s'>%s</td></tr>"
+                     "<tr class='%s'><td>%s</td><td><strong>%s</strong></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td title='%s'>%s</td><td title='%s'>%s</td></tr>"
                      
-            if '__test_report_date_format__' not in test_structure:
-                # The date formatting for the report filenames
-                self.test_structure['__test_report_date_format__'] = "%Y%m%d%H%M%S"
                 
         
     # This function takes a filename and parses the filename based on the compiled
@@ -100,10 +97,11 @@ class TestCase:
         print "done"
         
     # Append results to report
-    def report(self):
+    def report(self, path):
         row = self.test_structure['__test_table_row__'] % (
             self.test_structure['__report_class__'],
             self.test_structure['test_number'],
+            self.test_structure['__test_result__'],
            	self.test_structure['requirement_being_tested'],
            	self.test_structure['component_being_tested'],
            	self.test_structure['method_being_tested'],
@@ -113,18 +111,9 @@ class TestCase:
            	self.test_structure['__test_result__'],
            	self.test_structure['__test_result__']
         )
-        f = open(self.get_report_path(), 'a')
+        f = open(path, 'a')
         f.write(row)
         f.close()
-        
-    # Get the full path to the report for this run of tests
-    def get_report_path(self):
-        return framework.REPORTS_DIR + 'report_' + \
-            datetime.datetime.now().strftime(
-                self.test_structure['__test_report_date_format__']
-            ) + '.html'
-        
-        
         
         
         
