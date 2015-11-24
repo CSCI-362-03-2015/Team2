@@ -18,11 +18,10 @@ def drive(test_structure):
     # Parse out all method arguments, strip whitespace
     arity = int(test_structure['arity'])
     method_args = test_structure['test_input'].split(',')[:arity]
-    method_args = ",".join(map(lambda x: x.split('=')[1].strip(), method_args))
-    
+    method_args = map(lambda x: x.split('=')[1].strip(), method_args)
     
     # Insert the correct values into the test_template variable
-    compiled_method = test_structure['method_invocation'] % method_args
+    compiled_method = test_structure['method_invocation'] % tuple(method_args)
     
     template_data = (
         test_structure['test_number'],
