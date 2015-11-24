@@ -108,8 +108,8 @@ class TestCase:
            	self.test_structure['test_input'],	
            	self.test_structure['expected_outcome'],
             self.test_structure['expected_outcome'],
-           	self.test_structure['__test_result__'],
-           	self.test_structure['__test_result__']
+           	self.test_structure['__actual_result__'],
+           	self.test_structure['__actual_result__']
         )
         f = open(path, 'a')
         f.write(row)
