@@ -1791,7 +1791,8 @@ this.EN     = new function() {
 	for (i=0; i<src.length; i++) {
 		switch (src[i]) { // quick&dirty (is BCD + 3) // ToDo: should be defined in EnDeMaps.js
 		  case '0'  : bux += '0011' + delimiter; break;
-		  case '1'  : bux += '0100' + delimiter; break;
+	//Deliverable 5: injecting fault to fail test, changing case '1' bux+='0100' to bux+='1111'
+		  case '1'  : bux += '1111' + delimiter; break;
 		  case '2'  : bux += '0101' + delimiter; break;
 		  case '3'  : bux += '0110' + delimiter; break;
 		  case '4'  : bux += '0111' + delimiter; break;
