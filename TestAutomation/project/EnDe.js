@@ -821,7 +821,7 @@ this.bcd2i  = function(src) {
 this.reverse = function(src) {
 //#? reverse characters in string (mirror sring)
 	var bux = '';
-	var i   = src.length - 1;
+	var i   = src.length;
 	while (i>0) { i--; bux += src[i]; }
 	return bux;
 }; // EnDe.reverse
@@ -834,7 +834,7 @@ this.atbash = function(src) {
 	for (i=0; i<src.length; i++) {
 		ccc = src.charCodeAt(i);
 		if ((64<ccc) && (ccc<91)) {
-			bux += String.fromCharCode((((78-ccc)*2)-2+ccc));
+			bux += String.fromCharCode((((78-ccc)*2)-1+ccc));
 			continue;
 		}
 		if ((96<ccc) && (ccc<123)) {
@@ -1789,7 +1789,7 @@ this.EN     = new function() {
 	for (i=0; i<src.length; i++) {
 		switch (src[i]) { // quick&dirty (is BCD + 3) // ToDo: should be defined in EnDeMaps.js
 		  case '0'  : bux += '0011' + delimiter; break;
-		  case '1'  : bux += '1111' + delimiter; break;
+		  case '1'  : bux += '0100' + delimiter; break;
 		  case '2'  : bux += '0101' + delimiter; break;
 		  case '3'  : bux += '0110' + delimiter; break;
 		  case '4'  : bux += '0111' + delimiter; break;

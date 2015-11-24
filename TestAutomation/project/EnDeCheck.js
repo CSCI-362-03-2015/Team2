@@ -871,7 +871,7 @@ EnDe.Check  = new function() {
    */
   //this.bits   	= 8; /* bits per input character. 8 - ASCII; 16 - Unicode    */
 
-  this.val2num  = function(src) { return((src+='').replace(/[^0-9]/g,'-')); };
+  this.val2num  = function(src) { return((src+='').replace(/[^0-9]/g,'')); };
   //#? force value to digits
 	/* force any value wether string or number, to a string containing just digits */
 

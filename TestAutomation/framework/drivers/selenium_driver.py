@@ -32,7 +32,6 @@ def drive(test_structure):
     # click the desired link that causes the result
     # to be displayed in the textarea output
     link = driver.find_element_by_id(test_structure['link_id'])
-    print link.text
     link.click()
 
     # Locate the textarea used for output and retrieve the
