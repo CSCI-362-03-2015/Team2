@@ -150,7 +150,7 @@
  *    |  \/_______________________ Issuer Identifier (6 digits including MII digit)
  *    \___________________________ MII - Major Industry Identifier
  * -----
- * Prüfsumme bei IMEI und IMEISV ist Luhn-Algorithmus
+ * Pr�fsumme bei IMEI und IMEISV ist Luhn-Algorithmus
  * -----
  * DOI - Digital Object Identifier
  * http://WWW.DOI.org/  http://dx.DOI.org/
@@ -305,9 +305,9 @@ EnDe.Check  = new function() {
 	'488':    '?',
 	'487':    'Kasachstan',
 	'489':    'Hongkong',
-	'500':    'GroÃbritanien',
-	'50x':    'GroÃbritanien',
-	'509':    'GroÃbritanien',
+	'500':    'Großbritanien',
+	'50x':    'Großbritanien',
+	'509':    'Großbritanien',
 	'520':    'Griechenland',
 	'528':    'Libanon',
 	'529':    'Zypern',
@@ -319,14 +319,14 @@ EnDe.Check  = new function() {
 	'549':    'Belgien & Luxemburg',
 	'560':    'portugal',
 	'569':    'Island',
-	'570':    'DÃ¤nemark',
-	'57x':    'DÃ¤nemark',
-	'579':    'DÃ¤nemark',
+	'570':    'Dänemark',
+	'57x':    'Dänemark',
+	'579':    'Dänemark',
 	'590':    'Polen',
-	'594':    'RumÃ¤nien',
+	'594':    'Rumänien',
 	'599':    'Ungarn',
-	'600':    'SÃ¼dafrika',
-	'601':    'SÃ¼dafrika',
+	'600':    'Südafrika',
+	'601':    'Südafrika',
 	'608':    'Bahrein',
 	'609':    'Mauritius',
 	'611':    'Marokko',
@@ -334,7 +334,7 @@ EnDe.Check  = new function() {
 	'616':    'Kenia',
 	'619':    'Tunesien',
 	'621':    'Syrien',
-	'622':    'Ãgypten',
+	'622':    'Ägypten',
 	'624':    'Libyen',
 	'625':    'Jordanien',
 	'626':    'Iran',
@@ -387,20 +387,20 @@ EnDe.Check  = new function() {
 	'859':    'Tschechien',
 	'860':    'Jugoslawien',
 	'867':    'Nord Korea',
-	'869':    'TÃ¼rkei',
+	'869':    'Türkei',
 	'870':    'Niederlande',
 	'87x':    'Niederlande',
 	'879':    'Niederlande',
-	'880':    'SÃ¼d Korea',
+	'880':    'Süd Korea',
 	'885':    'Thailand',
 	'888':    'Singapur',
 	'890':    'Indien',
 	'893':    'Vietnam',
 	'899':    'Indonesien',
-	'900':    'Ãsterreich',
-	'90x':    'Ãsterreich',
-	'91x':    'Ãsterreich',
-	'919':    'Ãsterreich',
+	'900':    'Österreich',
+	'90x':    'Österreich',
+	'91x':    'Österreich',
+	'919':    'Österreich',
 	'930':    'Australien',
 	'93x':    'Australien',
 	'939':    'Australien',
@@ -411,8 +411,8 @@ EnDe.Check  = new function() {
 	'955':    'Malaysia',
 	'958':    'Macao',
 	'977':    'Zeitschriften',
-	'978':    'BÃ¼cher',
-	'979':    'BÃ¼cher',
+	'978':    'Bücher',
+	'979':    'Bücher',
 	'980':    'refund receipts',
 	'981':    'Common Currency Coupons',
 	'982':    'Common Currency Coupons',
@@ -607,7 +607,7 @@ EnDe.Check  = new function() {
 	'446261': 'Lloyds TSB VISA Debit Card (UK)',
 	'446268': 'Cahoot Debit Card (UK)',
 	'446278': 'Halifax Debit Card (UK)',
-	'446279': 'Bank of Scotland VISA Debit Card (UK in £)',
+	'446279': 'Bank of Scotland VISA Debit Card (UK in �)',
 	'4492'  : 'Vista Federal Credit Union (Walt Disney World) VISA Debit Card',
 	'449352': 'Nationwide Building Society VISA',
 	'449533': 'Bank of America, National Association - Classic, Debit, VISA',
@@ -633,7 +633,7 @@ EnDe.Check  = new function() {
 	'4537'  : 'Scotiabank VISA',
 	'4538'  : 'Scotiabank VISA',
 	'4539'  : 'Barclays Bank Connect VISA Debit Card',
-	'4540'  : 'Carte d\'accÃ©s Desjardins / VISA Desjardins',
+	'4540'  : 'Carte d\'accés Desjardins / VISA Desjardins',
 	'454312': 'First Direct VISA Credit Card',
 	'454313': 'Nationwide Building Society VISA Debit Card',
 	'454434': 'First Trust Bank VISA Debit Card',
@@ -871,8 +871,7 @@ EnDe.Check  = new function() {
    */
   //this.bits   	= 8; /* bits per input character. 8 - ASCII; 16 - Unicode    */
 
-  // XXX FAULT ADDED HERE	
-  this.val2num  = function(src) { return((src+='').replace(/[^0-9]/g,'-')); };
+  this.val2num  = function(src) { return((src+='').replace(/[^0-9]/g,'')); };
   //#? force value to digits
 	/* force any value wether string or number, to a string containing just digits */
 
