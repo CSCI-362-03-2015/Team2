@@ -21,9 +21,9 @@ report_name = "report_%s.html" % running_time.strftime("%Y%m%d%H%M%S")
 
 # Open a fill in top part of reports template and
 # write it to results.html
-f = open(framework.DRIVER_DIR + 'assets/templates/top.html', 'r')
+f = open(framework.ROOT_DIR + '/framework/assets/templates/top.html', 'r')
 top = f.read() % (running_time.strftime("%x at %X"), running_time.strftime("%x at %X"))
-top = top.replace("{DRIVER_DIR}", framework.DRIVER_DIR)
+top = top.replace("{ROOT_DIR}", framework.ROOT_DIR)
 f.close()
 
 f = open(framework.REPORTS_DIR + report_name, 'w')
@@ -45,6 +45,3 @@ f.close()
 webbrowser.open("file://" + framework.REPORTS_DIR + report_name)
 
 sys.exit(0)
-        
-    
-

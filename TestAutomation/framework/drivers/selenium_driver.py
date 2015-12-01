@@ -26,7 +26,7 @@ def drive(test_structure):
     hover_action = ActionChains(driver).move_to_element(list_item)
     hover_action.perform()
     
-    sleep(1)
+    sleep(2)
 
     # Now that the correct sub-menu is being displayed,
     # click the desired link that causes the result
