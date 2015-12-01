@@ -1,9 +1,11 @@
 test_number: 22
 requirement_being_tested: Convert hex value to a string of characters
 component_being_tested: h2c function in EnDe.js
-method_being_tested: h2c(src)
-test_input: src = "29"
-expected_outcome: ")"
-language: javascript
-method_invocation: EnDe.h2c(%s)
-arity: 1
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: h2c(src)
+	test_input: src = "29"
+	expected_outcome: ")"
+	method_invocation: EnDe.h2c(%s)
+	arity: 1

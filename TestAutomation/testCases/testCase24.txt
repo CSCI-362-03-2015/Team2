@@ -1,10 +1,12 @@
 test_number: 24
 requirement_being_tested: Test if image is an SVG file
 component_being_tested: EnDe.User.IMG SVG detection
-method_being_tested: EnDe.User.IMG.isSVG(src)
-test_input: src="DOCTYPE svg"
-expected_outcome: true
-language: javascript
-method_invocation: EnDe.User.IMG.isSVG(%s)
-arity: 1 
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: EnDe.User.IMG.isSVG(src)
+	test_input: src="DOCTYPE svg"
+	expected_outcome: true
+	method_invocation: EnDe.User.IMG.isSVG(%s)
+	arity: 1 
 

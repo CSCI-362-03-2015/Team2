@@ -1,9 +1,11 @@
 test_number: 1
 requirement_being_tested: Encode an input string into base64, display the resulting string.
 component_being_tested: the EnDe graphical interface - index.html
-method_being_tested: NA
-test_input: Euro
-expected_outcome: RXVybw==
-language: python
-list_number: 4
-link_id: EnDeDOM.EN.Actions.s.base64
+
+driver: selenium_driver
+	language: python
+	method_being_tested: NA
+	test_input: Euro
+	expected_outcome: RXVybw==
+	list_number: 4
+	link_id: EnDeDOM.EN.Actions.s.base64

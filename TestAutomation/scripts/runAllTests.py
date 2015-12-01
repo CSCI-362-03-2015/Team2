@@ -1,55 +1,47 @@
 import os
-import os.path
-from os.path import abspath as ap # shorter version
-import webbrowser
-import time
-import shutil
-import datetime
+import re
 import sys
-from selenium import webdriver
+import webbrowser
+from datetime import datetime as dt
+from setup import setup; setup()
 
-# http://stackoverflow.com/a/11158224
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-import opt.util
+import framework
+from framework.TestCase import TestCase
 
-# set absolute path of project
-opt.util.set_absolute_path(__file__ + '/../../')
-opt.util.cleanup()
+# Allow command-line selection of tests to run
+if len(sys.argv) > 1:
+	tests_to_run = sys.argv[1:]
+	framework.TESTS = filter(lambda x: x[0] in tests_to_run, framework.TESTS)
 
-running_time = opt.util.get_running_time("%x at %X")
+# Time of test
+running_time = dt.now()
 
-top = opt.util.file_action('opt/top.html') % \
-	(running_time, running_time)
+# Report Name
+report_name = "report_%s.html" % running_time.strftime("%Y%m%d%H%M%S")
 
-opt.util.file_action('temp/results.html', 'write', top)
+# Open a fill in top part of reports template and
+# write it to results.html
+f = open(framework.ROOT_DIR + '/framework/assets/templates/top.html', 'r')
+top = f.read() % (running_time.strftime("%x at %X"), running_time.strftime("%x at %X"))
+top = top.replace("{ROOT_DIR}", framework.ROOT_DIR)
+f.close()
 
-test_cases_data = opt.util.parse_test_cases('testCases')
+f = open(framework.REPORTS_DIR + report_name, 'w')
+f.write(top)
+f.close()
 
-python_test_case_data = opt.util.run_python_tests(test_cases_data['python'])
+for test in framework.TESTS:
+    test_case = TestCase()
+    test_case.parse(framework.TESTS_DIR + test[1])
+    test_case.execute()
+    test_case.report(framework.REPORTS_DIR + report_name)
 
-for data in python_test_case_data:
-	for i, test in enumerate(test_cases_data['python']):
-		if data[1] == test['test_number']:
-			test_cases_data['python'][i]['outcome'] = data[0]
-			test_cases_data['python'][i]['actual_result'] = data[2]
-				
-javascript_test_case_data = opt.util.run_javascript_tests(test_cases_data['javascript'])
+# write bottom of file
+f = open(framework.REPORTS_DIR + report_name, 'a')
+f.write("</tbody></table></body></html>")
+f.close()
 
-for data in javascript_test_case_data:
-	for i, test in enumerate(test_cases_data['javascript']):
-		if data[1] == test['test_number']:
-			test_cases_data['javascript'][i]['outcome'] = data[0]
-			if data[0] == 'fail':
-				test_cases_data['javascript'][i]['actual_result'] = data[2]
-			else:
-				test_cases_data['javascript'][i]['actual_result'] = test_cases_data['javascript'][i]['expected_outcome'] 
-				
-opt.util.write_results('temp/results.html', test_cases_data)
-
-shutil.copyfile('./temp/results.html', './reports/' + opt.util.get_report_name())
-
-webbrowser.open('file://' + os.path.realpath(os.path.abspath('./temp/results.html'))) 
+# open in web browser
+webbrowser.open("file://" + framework.REPORTS_DIR + report_name)
 
 sys.exit(0)
-
-#http://stackoverflow.com/a/5943706 >> credit for figuring out "os.path.realpath"#

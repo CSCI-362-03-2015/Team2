@@ -1,10 +1,12 @@
 test_number: 7
 requirement_being_tested: EnDe ability to safely add numbers
 component_being_tested: EnDe's safe_add function in sha.js
-method_being_tested: safe_add(x, y)
-test_input: x = 10, y = 11 
-expected_outcome: 21
-language: javascript
-method_invocation: EnDe.SHA['safe_add'](%s, %s)
-arity: 2
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: safe_add(x, y)
+	test_input: x = 10, y = 11 
+	expected_outcome: 21
+	method_invocation: EnDe.SHA['safe_add'](%s, %s)
+	arity: 2
 

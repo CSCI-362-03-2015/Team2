@@ -1,9 +1,11 @@
 test_number: 14
 requirement_being_tested: Convert binary to hexadecimal
 component_being_tested: Binary to hex function in EnDe.js
-method_being_tested: b2h(src)
-test_input: src = "10010101010"
-expected_outcome: "4aa"
-language: javascript
-method_invocation: EnDe.b2h(%s)
-arity: 1
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: b2h(src)
+	test_input: src = "10010101010"
+	expected_outcome: "4aa"
+	method_invocation: EnDe.b2h(%s)
+	arity: 1

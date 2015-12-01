@@ -1,9 +1,11 @@
 test_number: 9
 requirement_being_tested: Convert string to binary representation using 8 bits per character
 component_being_tested: String to binary conversion function in EnDe.js
-method_being_tested: str2bin(type,src,prefix,suffix,delimiter)
-test_input:type = 8, src = "Testing", prefix = "", suffix = "", delimiter = ""
-expected_outcome: "01010100011001010111001101110100011010010110111001100111"
-language: javascript
-method_invocation: EnDe.str2bin(%s, %s, %s, %s, %s)
-arity: 5
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: str2bin(type,src,prefix,suffix,delimiter)
+	test_input:type = 8, src = "Testing", prefix = "", suffix = "", delimiter = ""
+	expected_outcome: "01010100011001010111001101110100011010010110111001100111"
+	method_invocation: EnDe.str2bin(%s, %s, %s, %s, %s)
+	arity: 5

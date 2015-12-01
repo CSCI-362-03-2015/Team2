@@ -1,8 +1,4 @@
 list.html
-TestAutomation/temp/*
-TestAutomation/temp/results.html
 .DS_Store
 *~
 *.pyc
-
-*.pdf

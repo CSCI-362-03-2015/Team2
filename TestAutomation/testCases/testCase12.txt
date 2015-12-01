@@ -1,9 +1,11 @@
 test_number: 12
 requirement_being_tested: Convert plain text to Atbash encoding
 component_being_tested: Atbash encoding function in EnDe.js
-method_being_tested: atbash(src)
-test_input: src = "This is plain text"
-expected_outcome: "Gsrh rh kozrm gvcg"
-language: javascript
-method_invocation: EnDe.atbash(%s)
-arity: 1
+
+driver: qunit_driver
+	language: javascript
+	method_being_tested: atbash(src)
+	test_input: src = "This is plain text"
+	expected_outcome: "Gsrh rh kozrm gvcg"
+	method_invocation: EnDe.atbash(%s)
+	arity: 1
