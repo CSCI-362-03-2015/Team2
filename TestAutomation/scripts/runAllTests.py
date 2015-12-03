@@ -23,7 +23,7 @@ report_name = "report_%s.html" % running_time.strftime("%Y%m%d%H%M%S")
 # write it to results.html
 f = open(framework.ROOT_DIR + '/framework/assets/templates/top.html', 'r')
 top = f.read() % (running_time.strftime("%x at %X"), running_time.strftime("%x at %X"))
-top = top.replace("{ROOT_DIR}", framework.ROOT_DIR)
+#top = top.replace("{ROOT_DIR}", framework.ROOT_DIR)
 f.close()
 
 f = open(framework.REPORTS_DIR + report_name, 'w')
